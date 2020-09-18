@@ -31,7 +31,7 @@ class LmsDriver(Driver):
 		if not self.__running:
 			return ALREADY_CLOSED_ERROR
 		self.browser.close()
-		self.__running = True
+		self.__running = False
 		return SUCCESS_CODE
 
 	def set_params(self, params):
