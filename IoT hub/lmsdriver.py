@@ -31,6 +31,7 @@ class LmsDriver(Driver):
 		if not self.__running:
 			return ALREADY_CLOSED_ERROR
 		self.browser.close()
+		self.__running = True
 		return SUCCESS_CODE
 
 	def set_params(self, params):
@@ -59,14 +60,14 @@ class LmsDriver(Driver):
 		pass
   
 	def set_username(self, username):
-		self.set_textbo_text("username", username)
+		self.set_textbox_text("username", username)
 		pass
 
 	def set_password(self, password):
-		self.set_textbo_text("password", password)
+		self.set_textbox_text("password", password)
 		pass
 
-	def set_textbo_text(self, textboxName, text):
+	def set_textbox_text(self, textboxName, text):
 		textbox = self.browser.find_element_by_id(textboxName)
 		if textbox is None:
 			raise LmsError(ELEMENT_NOT_FOUND)
